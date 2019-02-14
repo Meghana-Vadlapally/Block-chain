@@ -4,8 +4,26 @@ import Home from './views/Home.vue';
 import Login from '@/views/Login.vue';
 import Register from '@/views/Register.vue';
 import UploadProduct from '@/views/UploadProduct.vue';
+import store from '@/store';
 
 Vue.use(Router);
+
+
+const ifNotAuthenticated = (to: any, from: any, next: any) => {
+  if (!store.getters.isAuthenticated) {
+    next();
+    return;
+  }
+  next('/');
+};
+
+const ifAuthenticated = (to: any, from: any, next: any) => {
+  if (store.getters.isAuthenticated) {
+    next();
+    return;
+  }
+  next('/login');
+};
 
 export default new Router({
   mode: 'history',
@@ -20,16 +38,19 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login,
+      beforeEnter: ifNotAuthenticated,
     },
     {
       path: '/register',
       name: 'register',
       component: Register,
+      beforeEnter: ifNotAuthenticated,
     },
     {
       path: '/upload-product',
       name: 'Upload Product',
       component: UploadProduct,
+      beforeEnter: ifAuthenticated,
     },
     {
       path: '/about',

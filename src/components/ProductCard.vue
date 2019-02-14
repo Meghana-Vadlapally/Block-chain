@@ -1,6 +1,11 @@
 <template>
     <div>
-        Product Card
+        <img src=""></img>
+        <div>
+            <h1>Product Name</h1>
+            <h3>Price</h3>
+        </div>
+
     </div>
 </template>
 
