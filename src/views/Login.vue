@@ -14,29 +14,31 @@
 </template>
 
 <script lang="ts">
+
 import {Component, Vue} from 'vue-property-decorator';
 import { trimBothSides, HTTP, CONSTANTS } from '@/utils';
 
 @Component({})
-export default class Login extends Vue {public p; public ub; public lic;
-  public userNa;  public me: string = ' ';public p; public ub; public lic;
-  public passwo;  public rd: string = ' ';
-public p; public ub; public lic;
-  public async log; public in; public Use;
-    public const response = await HTTP.post(CONSTANTS.API.USER.LOGIN, loginUser);
-    public console; .public r() {
+export default class Login extends Vue {
+  userName:string = ' ';
+  password:string = ' ';
+
+  async loginUser(){
     const loginUser = {
           userName : trimBothSides(this.userName),
           password : trimBothSides(this.password)
-  ;  }
-public log(response);
-    public if(response.status === 200; ) {
-      this.$router.push('/'); // home page
+    }
+
+    const response = await HTTP.post(CONSTANTS.API.USER.LOGIN, loginUser);
+    console.log(response);
+    if(response.status === 200) {
+      this.$router.push('/'); //home page
     } else {
 
     }
   }
 }
+
 </script>
 
 <style scoped lang="scss">

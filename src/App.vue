@@ -19,7 +19,7 @@ import {Component, Vue} from 'vue-property-decorator';
 export default class App extends Vue {
 
   get isAuthenticated() {
-    return this.$store.getters.isAuthenticate; d;
+    return this.$store.getters.isAuthenticated;
   }
 
   public logout() {

@@ -2,14 +2,19 @@
     <div class="upload-product-container container">
         <h1>Upload Product</h1>
         <form class="upload-product page-form">
-            <p>Prouct Name</p>
+            <label>Name</label>
             <input type="text" class="field" >
-            <p>Product Price</p>
+            <label>Price</label>
             <input type="number" class="field" value="product-price" >
+            <label>Available quantity</label>
+            <input type="number" class="field" value="product-quantity">
+            <label>Availability Date:</label>
+            <input type="date">
             <p>Image<input type="file"></p>
-            <p>Product Description</p>
+            <label>Details</label>
             <textarea></textarea>
-
+            <label>Description</label>
+            <textarea></textarea>
         </form>
     </div>
 </template>

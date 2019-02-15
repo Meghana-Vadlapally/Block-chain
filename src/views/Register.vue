@@ -18,44 +18,44 @@
 </template>
 
 <script lang="ts">
+
 import {Component, Vue} from 'vue-property-decorator';
 import { HTTP } from '@/utils/http';
 import { CONSTANTS } from '@/utils/constants';
 
 interface User {
-    fullName: str; ng;
-    userName: str; ng;
-    password: str; ng;
-    email: str; ing;
+    fullName: string,
+    userName: string,
+    password: string,
+    email: string
 }
-
-
 
 @Component({})
 export default class Register extends Vue {
 
- public    fullName: string = '';
- public    userName: string = '';
- public    email: string = '';
- public    password: string = '';
- public    confirmPassword: string = '';
+    fullName: string = '';
+    userName: string = '';
+    email: string = '';
+    password: string = '';
+    confirmPassword: string = '';
 
-  public    async registerUser() {
-         // 1. create user object (payload)
-         // 2. call server API
+     async registerUser() {
+        //1. create user object (payload)
+        //2. call server API
         const user: User = {
             fullName: this.fullName,
             email: this.email,
             password: this.password,
-            userName: this.userN, ame,
+            userName: this.userName
         };
 
-        const response = await HTTP.post(CONSTANTS.API.USER.REGISTER, user);
+       const response = await HTTP.post(CONSTANTS.API.USER.REGISTER, user);
 
         console.log(this.fullName, this.userName, this.password, this.email);
 
     }
 }
+
 </script>
 
 <style scoped lang="scss">
