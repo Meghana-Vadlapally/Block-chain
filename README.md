@@ -1,3 +1,9 @@
+
+1. install node version 9.7.1
+2. Run `npm install` at project root to install project dependencies
+3. Run `npm run serve` to run the project at 
+
+
 # block-chain
 
 ## Project setup

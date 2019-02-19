@@ -25,13 +25,15 @@ HTTP.interceptors.request.use(
 
 HTTP.interceptors.response.use(
     (response) => {
-      const token = response.headers.authorization;
-      if (token) {
+      // const token = response.headers.authorization;
+        const token = response.data.token;
+        console.log(response);
+        if (token) {
           localStorage.setItem('AUTH', token);
           console.log('1. dispatching setToken ');
           store.dispatch('setToken', token);
       }
-      return response;
+        return response;
     },
     async (error) => {
       const originalRequest = error.config;

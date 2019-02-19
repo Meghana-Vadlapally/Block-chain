@@ -1,61 +1,69 @@
 <template>
     <div class="register-container container">
-        <h1>Register Here!</h1>
-        <form class="register" @submit.prevent="registerUser">
-            <p>Full Name</p>
-            <input type="text" v-model="fullName" name="fullname" class="field">
-            <p>User name</p>
-            <input type="text" v-model="userName" name="username" class="field">
-            <p>Email</p>
-            <input type="email" v-model="email" name="email" class="field" >
-            <p>Password</p>
-            <input type="password" v-model="password" name="password" class="field" >
-            <p>Confirm password</p>
-            <input type="password" v-model="confirmPassword" name="confirm-password" class="field" >
+        <form class="register form" @submit.prevent="registerUser">
+            <h1>Register Here!</h1>
+            <div>
+                <label for="fullName">Full Name </label>
+                <input type="text" id="fullName" v-model="fullName" name="fullname" >
+            </div>
+            <div>
+                <label for="userName">User name </label>
+                <input type="text" id="userName" v-model="userName" name="username">
+            </div>
+            <div>
+                <label for="email">Email </label>
+                <input type="email" id="email" v-model="email" name="email" >
+            </div>
+            <div>
+                <label for="password">Password </label>
+                <input type="password" id="password" v-model="password" name="password" class="field" >
+            </div>
+            <div>
+                <label for="c-password">Confirm password </label>
+                <input type="password" id="c-password" v-model="confirmPassword" name="confirm-password"  >
+            </div>
             <button type="submit" class="button">Register</button>
         </form>
     </div>
 </template>
 
 <script lang="ts">
-
 import {Component, Vue} from 'vue-property-decorator';
 import { HTTP } from '@/utils/http';
 import { CONSTANTS } from '@/utils/constants';
 
 interface User {
-    fullName: string,
-    userName: string,
-    password: string,
-    email: string
+    fullName: s; tr; ng;
+    userName: s; tr; ng;
+    password: s; tr; ng;
+    email: s; tr; ing;
 }
 
 @Component({})
 export default class Register extends Vue {
 
-    fullName: string = '';
-    userName: string = '';
-    email: string = '';
-    password: string = '';
-    confirmPassword: string = '';
+ public    fullName: string = '';
+ public    userName: string = '';
+ public    email: string = '';
+ public    password: string = '';
+ public    confirmPassword: string = '';
 
-     async registerUser() {
-        //1. create user object (payload)
-        //2. call server API
+  public    async registerUser() {
+         // 1. create user object (payload)
+         // 2. call server API
         const user: User = {
             fullName: this.fullName,
             email: this.email,
             password: this.password,
-            userName: this.userName
+            userName: this.use rN, ame,
         };
 
-       const response = await HTTP.post(CONSTANTS.API.USER.REGISTER, user);
-
-        console.log(this.fullName, this.userName, this.password, this.email);
-
+        const response = await HTTP.post(CONSTANTS.API.USER.REGISTER, user);
+        if (response.status === 200) {
+           this.$router.push('/');  // home page
+       }
     }
 }
-
 </script>
 
 <style scoped lang="scss">
