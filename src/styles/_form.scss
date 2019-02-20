@@ -1,0 +1,30 @@
+.form-group {
+  text-align: left;
+  margin-bottom: 15px;
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input {
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid #eaecee;
+    min-height: 30px;
+  }
+  .icon-input-container {
+    display: flex;
+    margin: 5px 0 15px 0;
+    i {
+      align-self: center;
+      padding: 10px;
+      border: 1px solid #eaecee;
+      background: #f0f4f3;
+      color: #a1aba8;
+    }
+    .icon-input {
+      border-left: none;
+      padding-left: 5px;
+    }
+
+  }
+}

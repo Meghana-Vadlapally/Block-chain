@@ -4,20 +4,19 @@
 @import "form";
 
 body {
-  //background: var(--main-bg-color);
-  background-image: url('bg.jpg');
+  background: var(--main-bg-color);
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
 }
 .input-field {
 
 }
 #app {
   font-size: 16px;
-  display: grid;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  grid-gap: 5px;
-  color: white;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 #nav {
   display: flex;
@@ -25,40 +24,4 @@ body {
   padding: 30px;
 
 }
-a {
-  font-weight: bold;
-  color: white;
-  text-decoration:none;
-  padding:20px;
-  &.router-link-exact-active {
-    color: #42b983;
-    padding:20px;
-  }
-}
-.container{
-  display:block;
-  text-align: center;
-  form{
-    display:inline-block;
-    magin: 0 auto;
-    text-align:left;
-    border: 1px solid gray;
-    padding:20px;
-
-    div{
-      padding: 10px;
-    }
-    button{
-      display:block;;
-      margin:0 auto;
-      border:none;
-      background-color: #87ffc1;
-      padding:10px;
-      border-radius: 5px;
-    }
-    button:hover{
-      box-shadow: 0 12px 16px 0 rgba(197, 236, 255, 0.24), 0 17px 50px 0 rgba(107, 255, 53, 0.19);
-    }
-  }
-  }
 

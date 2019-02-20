@@ -1,45 +1,44 @@
-<template class="productCard-container">
-    <div>
+<template>
+    <div class="product-card">
+        <img alt="" class="product-image" src="https://rukminim1.flixcart.com/image/612/612/jqidjm80/headphone/b/r/g/jbl-t450-bt-original-imaf7vzzgz3d8gd6.jpeg?q=70">
+        <h2>Product Name</h2>
+        <span>Seller Name</span>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore natus nihil praesentium.</p>
+        <div class="card-footer">
+            <div class="price">$10</div>
+            <a href="" class="button button-default">More details</a>
+        </div>
 
-
-        <div class="temp" v-if="showDiv">testing IF <img src="http://astrologynewsservice.com/wp-content/uploads/2014/08/1240-305x260.png"/></div>
-        <button @click="showDiv =!showDiv">toggle</button>
-        <img src=""></img>
-        <div class="card-fields">
-            <h2>Product Name</h2>
-            <span>Price</span>
-        </div>
-        <div>
-            <h3>Details:</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, ipsum iure neque quisquam sint suscipit tenetur. Cupiditate eaque esse exercitationem minus molestiae mollitia numquam obcaecati officiis quidem quod, reprehenderit similique?
-           </p>
-            <a href="">click here for more details</a>
-        </div>
-        </div>
+    </div>
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
+    import {Component, Vue} from 'vue-property-decorator';
 
-@Component({})
-export default class ProductCard extends Vue {
- public showD;  public iv: boolean = true;
-}
+    @Component({})
+    export default class ProductCard extends Vue {
+
+    }
 </script>
 
 <style scoped lang="scss">
-.productCard-container{
+    .product-card {
+        background: white;
+        padding: 20px 25px;
+        .product-image {
+            display: block;
+            margin: 0 auto;
+            height: 300px;
+        }
+        .card-footer {
+            display: flex;
+            .price {
+                flex: 1;
+                font-size: 25px;
+            }
+            .button {
 
-}
-    p{
-        text-align: justify;
+            }
+        }
     }
-    a{
-        padding: unset;
-    }
-    a:hover{
-        color: #87ffc1;
-        box-shadow: 0 12px 16px 0 rgba(197, 236, 255, 0.24), 0 17px 50px 0 rgba(107, 255, 53, 0.19);
-    }
-
 </style>

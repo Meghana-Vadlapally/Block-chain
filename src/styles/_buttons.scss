@@ -1,0 +1,26 @@
+.button {
+  border: none;
+  padding: 10px 15px;
+  outline: none;
+  color: white;
+  border-radius: 5px;
+  min-width: 100px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  text-align: center;
+
+  &.button-success {
+    background: #58AF9B;
+  }
+  &.button-default {
+    background: white;
+    border: 1px solid #eaecee;
+    color: black;
+  }
+  &.button-block {
+    width: 100%
+  }
+}
+

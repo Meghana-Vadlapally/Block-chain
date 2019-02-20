@@ -33,51 +33,51 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
-import { HTTP } from '@/utils/http';
-import { CONSTANTS } from '@/utils/constants';
+    import {Component, Vue} from 'vue-property-decorator';
+    import { HTTP } from '@/utils/http';
+    import { CONSTANTS } from '@/utils/constants';
 
-@Component({})
-export default class UploadProduct extends Vue {
+    @Component({})
+    export default class UploadProduct extends Vue {
 
-    public productName: string = '';
-    public productPrice: number = 1;
-    public quantity: number = 1;
-  //  availableDate: any = new Date.now();
-    public productDescription: string = '';
-    public productDetails: string = '';
+        public productName: string = '';
+        public productPrice: number = 1;
+        public quantity: number = 1;
+        //  availableDate: any = new Date.now();
+        public productDescription: string = '';
+        public productDetails: string = '';
 
-    public fileName: string = '';
-    public file: any = '';
-    public async uploadProduct() {
+        public fileName: string = '';
+        public file: any = '';
+        public async uploadProduct() {
 
-       constt; formData = new FormData();
-       formData.append('productImage', this.file);
-       formData.append('name', this.productName);
-       formData.append('details', this.productDetails);
-       formData.append('shortDescription', this.productDescription);
-       formData.append('price',  this.productPrice.toString());
-       console.log(formData);
+            const formData = new FormData();
+            formData.append('productImage', this.file);
+            formData.append('name', this.productName);
+            formData.append('details', this.productDetails);
+            formData.append('shortDescription', this.productDescription);
+            formData.append('price',  this.productPrice.toString());
+            console.log(formData);
 
-       const response = await HTTP.post(CONSTANTS.API.PRODUCTS.NEW_PRODUCT, formData , {
-            headers: {
-                'Content-Type': 'multipart/form-data,'
-             , },
-        });
-       console.log(response);
+            const response = await HTTP.post(CONSTANTS.API.PRODUCTS.NEW_PRODUCT, formData , {
+                headers: {
+                    'Content-Type': 'multipart/form-data,'
+                    , },
+            });
+            console.log(response);
 
+        }
+        public handleImageUpload(file: any) {
+            this.file = file.files[0];
+            console.log(file.files);
+        }
     }
-    public handleImageUpload(file: any) {
-        this.file = file.files[0];
-        console.log(file.files);
-    }
-}
 </script>
 
 <style scoped lang="scss">
-        textarea{
-          display:block;
-            padding:1%;
-        }
+    textarea{
+        display:block;
+        padding:1%;
+    }
 
 </style>
