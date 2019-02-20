@@ -1,23 +1,41 @@
 <template>
     <div class="product-card">
-        <img alt="" class="product-image" src="https://rukminim1.flixcart.com/image/612/612/jqidjm80/headphone/b/r/g/jbl-t450-bt-original-imaf7vzzgz3d8gd6.jpeg?q=70">
-        <h2>Product Name</h2>
-        <span>Seller Name</span>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore natus nihil praesentium.</p>
+        <img alt="" class="product-image" :src="imageBasePath+product.productImagePath">
+        <h2>{{product.name}}</h2>
+        <span>{{product.postedBy.fullName}}</span>
+        <p>{{product.shortDescription}}</p>
         <div class="card-footer">
-            <div class="price">$10</div>
+            <div class="price">{{product.price}}</div>
             <a href="" class="button button-default">More details</a>
         </div>
-
     </div>
 </template>
 
 <script lang="ts">
-    import {Component, Vue} from 'vue-property-decorator';
+    import { Component, Prop, Vue } from "vue-property-decorator";
+    import { CONSTANTS } from '@/utils';
+    export interface Product {
+        status: number;
+        _id: string;
+        name: string;
+        details: string;
+        shortDescription: string;
+        price: number;
+        postedBy: PostedBy;
+        productImagePath: string;
+        postedOn: Date;
+        availability: Date;
+    }
+
+    export interface PostedBy {
+        _id: string;
+        fullName: string;
+    }
 
     @Component({})
     export default class ProductCard extends Vue {
-
+        @Prop() product: Product;
+        imageBasePath: string = CONSTANTS.IMAGE_BASE_PATH;
     }
 </script>
 

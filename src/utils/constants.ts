@@ -13,4 +13,5 @@ export const CONSTANTS = {
       PRODUCT_DETAILS: '/product',
     },
   },
+  IMAGE_BASE_PATH: 'https://localhost:3000/'
 };

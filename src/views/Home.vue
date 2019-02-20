@@ -1,10 +1,8 @@
 <template>
   <div class="home product-display">
     <div class="product-list">
-      <product-card></product-card>
-      <product-card></product-card>
-      <product-card></product-card>
-      <product-card></product-card>
+      <product-card :product="product" v-for="product in  products"></product-card>
+
     </div>
   </div>
 </template>
@@ -21,12 +19,17 @@ import { CONSTANTS, HTTP } from '@/utils'; // @ is an alias to /src
 })
 export default class Home extends Vue {
 
-  public created() {
+  products: Array<any> = [];
+  created() {
     this.getProducts();
   }
-  public getProducts() {
-    const response = HTTP.get(CONSTANTS.API.PRODUCTS.PRODUCT_LIST);
+  async getProducts() {
+    const response = await HTTP.get(CONSTANTS.API.PRODUCTS.PRODUCT_LIST);
     console.log(response);
+    if(response.status === 200) {
+      this.products = response.data;
+    }
+
   }
 
 }
